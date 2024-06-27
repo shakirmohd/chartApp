@@ -42,7 +42,7 @@ The Chart component accepts two props:
 Example:
 
 ```jsx
-<Chart data={yourData} timeframe="daily" />
+<Chart data={data} timeframe="daily" />
 ```
 
 ## Data Filtering
