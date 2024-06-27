@@ -6,6 +6,25 @@ This application is a dynamic, interactive chart component built with React and 
 
 You can view a live demo of the application here: [Chart Application](https://chart-app-nu.vercel.app/)
 
+## Features
+
+- Interactive line chart with zoom functionality
+- Daily, weekly, and monthly data views
+- Custom tooltips for data points
+- Modal view for detailed data point information
+- Data filtering capability
+- Chart export functionality (JPG and PNG formats)
+- Responsive design
+
+## Technologies Used
+
+- React
+- TypeScript
+- Recharts
+- React Modal
+- Framer Motion
+- HTML2Canvas
+- Styled Components
 
 ## Installation
 
