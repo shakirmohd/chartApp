@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import Chart from './components/Chart';
+import TimeframeSelector from './components/TimeframeSelector';
+import { AppContainer } from './styles/app';
+import { DataPoint } from './types';
+import jsonData from './data/data.json';
+import { ChartHeader } from './styles/chart';
 
-function App() {
+const App: React.FC = () => {
+  const [data, setData] = useState<DataPoint[]>([]);
+  const [timeframe, setTimeframe] = useState<string>('daily');
+
+  useEffect(() => {
+    const newData: DataPoint[] = jsonData.data.map(item => ({
+      timestamp: item.timestamp,
+      value: item.value
+    }));
+    setData(newData);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContainer>
+      <ChartHeader>
+      <h1>Chart Application</h1>
+      <TimeframeSelector timeframe={timeframe} setTimeframe={setTimeframe} />
+      </ChartHeader>
+      <Chart data={data} timeframe={timeframe} />
+    </AppContainer>
   );
-}
+};
 
 export default App;
